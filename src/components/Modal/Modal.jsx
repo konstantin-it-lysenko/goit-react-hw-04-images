@@ -19,7 +19,7 @@ class Modal extends Component {
     return (
       <Overlay className="overlay" onClick={onClose}>
         <ModalItem className="modal">
-          <img src={largeImg} alt="image" />
+          <img src={largeImg} alt="info" />
         </ModalItem>
       </Overlay>
     );
