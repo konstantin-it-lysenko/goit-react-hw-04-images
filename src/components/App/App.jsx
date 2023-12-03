@@ -27,6 +27,7 @@ class App extends Component {
     const { q, page } = this.state;
     try {
       this.setState({ isLoading: true });
+
       const data = await getImages(q, page);
 
       this.setState(prevState => ({
