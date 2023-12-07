@@ -16,18 +16,18 @@ const App = () => {
 
   useEffect(() => {
     if (q !== '') {
-      searchByQuery();
+      searchByQuery(q, page);
     }
   }, [q, page]);
 
-  const searchByQuery = async () => {
+  const searchByQuery = async (q, page) => {
     try {
       setIsLoading(true);
 
-      const data = await getImages(q, page);
+      const { hits, totalHits } = await getImages(q, page);
 
-      setTotalImages(data.totalHits);
-      setResults(prev => [...prev, ...data.hits]);
+      setTotalImages(totalHits);
+      setResults(prev => [...prev, ...hits]);
     } catch (err) {
       console.error(err);
       Notify.error(`Error: ${err.message}`);
